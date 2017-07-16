@@ -14,7 +14,6 @@ def login():
     if request.method == 'POST':
         return valid_login(request.form['username'],
                            request.form['password'])
-    # the code below is executed if the request method
     return render_template('login.html', error=error)
 
 
@@ -25,7 +24,6 @@ def index():
 
 def valid_login(username, password):
     cur = mysql.connection.cursor()
-    # select * from users where username="john" and password="doe"
     sql_query = 'SELECT * FROM users WHERE username=\'' + str(username) + \
         '\' and password=\'' + str(password) + '\''
     cur.execute(sql_query)
