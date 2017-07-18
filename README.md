@@ -16,17 +16,30 @@ Web vulnerabilities <br />
             difference can be established, then it is a matter of including the <br/>
             'question' we are unsure of and using the server's response as the <br/>
             'answer'. More specifically, as a test the following was submitted
+            <br/>
             to the password box in the login page [pswd' or
             substring('ab',1,1)='a' and '1=1] this asks the server if 'a' is the
+            <br/>
             first character in the string 'ab'. Based on access/denial to the
+            <br/>
             login, we know if that query is true or false. This was then used to
+            <br/>
             check for the letters in the password by submitting [pswd' or
+            <br/>
             substring(password,1,1)='d' and '1=1]. In this case we knew the
+            <br/>
             username, however, so an attack must be found to do this without
+            <br/>
             knowing this info. But, there are circumstances where usernames are
+            <br/>
             leaked without passwords.
+            <br/>
         - TODO: 1. how to find column names 
+            <br/>
                 2. automate finding password with script and third attack
+            <br/>
+                3. timing attack
+            <br/>
 
     b.<br/>
     Vulnerability: id_content_server.py returns pages based on ids
