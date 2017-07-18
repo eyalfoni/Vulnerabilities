@@ -10,14 +10,13 @@ mysql = MySQL(app)
 
 @app.route('/')
 def index():
-    return Response('Welcome to the hackable site - go to /login')
+    return Response('Welcome to the hackable site - go to /userid/<userid>')
 
 
 @app.route('/userid/<userid>')
 def page_content(userid):
-    # URL decode userid
     cur = mysql.connection.cursor()
-    sql_query = 'SELECT * FROM page WHERE id=' + str(userid)
+    sql_query = 'SELECT page_content FROM page WHERE id=' + str(userid)
     print sql_query
     cur.execute(sql_query)
     rv = cur.fetchall()
@@ -25,4 +24,7 @@ def page_content(userid):
     if not rv:
         return Response('No page content matched id.')
     if rv:
-        return Response('Page content succesfully displayed')
+        res = ''
+        for elem in rv:
+            res += ''.join(elem)
+        return Response(res)

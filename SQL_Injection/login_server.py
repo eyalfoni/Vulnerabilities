@@ -39,17 +39,3 @@ def valid_login(username, password):
         return Response('Incorrect credentials. Access denied.')
     else:
         return Response('Correct credentials. Access granted.')
-
-
-@app.route('/userid/<userid>')
-def page_content(userid):
-    cur = mysql_db.connection.cursor()
-    sql_query = 'SELECT * FROM page WHERE id=' + str(userid)
-    print sql_query
-    cur.execute(sql_query)
-    rv = cur.fetchall()
-    print rv
-    if not rv:
-        return Response('No page content matched id.')
-    if rv:
-        return Response('Page content succesfully displayed' + rv)
