@@ -1,8 +1,9 @@
 # SQL Injection #
 
 ## This vulnerability occurs when unparsed user input is used for SQL queries ##
-
-1. Using SQL injection to gain permission access where username/password
+----
+### Username/Password Unauthorized Access ###
+Using SQL injection to gain permission access where username/password
 are required.
 
 #### Vulnerability ####
@@ -36,8 +37,12 @@ Using this technique, I wrote an automated hack to check for each
 letter one at a time until the entire password is recovered. This file
 can be found in blind_sql.py.
 
-2.
+----
+
+### Accessing web pages by ID ###
+
 #### Vulnerability ####
+
 id_content_server.py returns pages based on ids - SQL injection can be used
 to view more pages than permitted
 
