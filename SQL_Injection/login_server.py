@@ -1,5 +1,7 @@
+from __future__ import print_function
 from flask import Flask, request, render_template, Response
 from flask_mysqldb import MySQL
+import sys
 
 app = Flask(__name__)
 # Dummy password in plaintext
@@ -30,11 +32,11 @@ def index():
 def valid_login(username, password):
     cur = mysql.connection.cursor()
     sql_query = 'SELECT * FROM users WHERE username=\'' + str(username) + \
-        '\' and password=\'' + str(password) + '\''
-    print sql_query
+        '\' and (password=\'' + str(password) + '\')'
+    # print(sql_query, sys.stdout)
     cur.execute(sql_query)
     rv = cur.fetchall()
-    print rv
+    # print(rv, sys.stdout)
     if not rv:
         return Response('Incorrect credentials. Access denied.')
     else:

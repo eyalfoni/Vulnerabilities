@@ -39,7 +39,7 @@ can be found in blind_sql.py.
 
 ----
 
-### Accessing web pages by ID ###
+### Accessing Web Pages By ID ###
 
 #### Vulnerability ####
 
