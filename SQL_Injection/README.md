@@ -5,11 +5,9 @@
 
 ### Web vulnerabilities ###
 
-1. SQL Injection
+1. #### SQL Injection ####
     1. Using SQL injection to gain permission access where username/password
     are required.
-
-    2.
 
     #### Vulnerability ####
 
@@ -40,8 +38,7 @@
         letter one at a time until the entire password is recovered. This file
         can be found in blind_sql.py.
 
-    3.
-
+    2.
     #### Vulnerability ####
     id_content_server.py returns pages based on ids - SQL injection can be used
     to view more pages than permitted
