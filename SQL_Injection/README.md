@@ -6,9 +6,7 @@
 ### Web vulnerabilities ###
 
 1. SQL Injection
-    i. 
-
-    Using SQL injection to gain permission access where username/password
+    i. Using SQL injection to gain permission access where username/password
     are required.
 
     ii.
