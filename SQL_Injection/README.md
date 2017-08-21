@@ -5,21 +5,23 @@
 
 ### Web vulnerabilities ###
 
-1. #### SQL Injection ####
-    i. Using SQL injection to gain permission access where username/password
+#### SQL Injection ####
+    1. Using SQL injection to gain permission access where username/password
     are required.
 
-    #### Vulnerability ####
+        #### Vulnerability ####
 
-    login_server.py is a web server file - user input is POSTed and used as
-    raw SQL query to database
+        login_server.py is a web server file - user input is POSTed and used as
+        raw SQL query to database
 
-    #### Exploits ####
-        i. Submitting in password box: [pswd' or '1=1] will give access into
+        #### Exploits ####
+        1. Submitting in password box: [pswd' or '1=1] will give access into
         application b/c the SQL query becomes [SELECT * FROM users WHERE
         username='username' and passwords='pswd' or '1=1']
-        ii. [pswd' UNION SELECT * FROM users WHERE '1=1]
-        iii. Blind SQL Injection can be used to gain login access by figuring out
+
+        2. [pswd' UNION SELECT * FROM users WHERE '1=1]
+
+        3. Blind SQL Injection can be used to gain login access by figuring out
         the user password. This works by understanding which queries result in
         the server responding with true or false values. For example, a password
         can be recovered from a database by querying the server for each letter
@@ -38,13 +40,14 @@
         letter one at a time until the entire password is recovered. This file
         can be found in blind_sql.py.
 
-    ii.
+    2.
     #### Vulnerability ####
     id_content_server.py returns pages based on ids - SQL injection can be used
     to view more pages than permitted
 
     #### Exploits ####
-        i. Can get server to display more pages than allowed by one id by submitting [3 or 1=1] as
+        1. Can get server to display more pages than allowed by one id by submitting [3 or 1=1] as
            url param
-        ii. Similarly using a union, we can get more than one page at a time
+
+        2. Similarly using a union, we can get more than one page at a time
            [1 union select page_content from page where id=2]
