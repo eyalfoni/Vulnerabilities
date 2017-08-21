@@ -7,7 +7,7 @@
 
 1. #### SQL Injection ####
     1. Using SQL injection to gain permission access where username/password
-    are required.
+    are required. wtf?
 
     #### Vulnerability ####
 
