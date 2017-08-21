@@ -17,19 +17,15 @@
     raw SQL query to database
 
     Exploits:
-
         a. Submitting in password box: [pswd' or '1=1] will give access into
         application b/c the SQL query becomes [SELECT * FROM users WHERE
         username='username' and passwords='pswd' or '1=1']
-
         b. [pswd' UNION SELECT * FROM users WHERE '1=1]
-
         c. Blind SQL Injection can be used to gain login access by figuring out
         the user password. This works by understanding which queries result in
         the server responding with true or false values. For example, a password
         can be recovered from a database by querying the server for each letter
         in the string. 
-    
         More specifically, as a test the following was submitted
         to the password box in the login page [pswd' or
         substring('ab',1,1)='a' and '1=1] this asks the server if 'a' is the
@@ -40,7 +36,6 @@
         username, however, so an attack must be found to do this without
         knowing this info. But, there are circumstances where usernames are
         leaked without passwords.
-
         Using this technique, I wrote an automated hack to check for each
         letter one at a time until the entire password is recovered. This file
         can be found in blind_sql.py.
@@ -48,13 +43,11 @@
     iii.
 
     Vulnerability: 
-    
     id_content_server.py returns pages based on ids - SQL injection can be used
     to view more pages than permitted
 
     Exploits:
         a. Can get server to display more pages than allowed by one id by submitting [3 or 1=1] as
            url param
-
         b. Similarly using a union, we can get more than one page at a time
            [1 union select page_content from page where id=2]
