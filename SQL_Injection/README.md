@@ -35,7 +35,8 @@ knowing this info. But, there are circumstances where usernames are
 leaked without passwords.
 Using this technique, I wrote an automated hack to check for each
 letter one at a time until the entire password is recovered. This file
-can be found in blind_sql.py.
+can be found in blind_sql.py. The POST variables were discovered using Burp
+Suite Inspector to check the HTTP message.
 
 ----
 
